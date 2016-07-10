@@ -74,3 +74,17 @@ class Table2Html:
     return ''.join(html)
 
 
+# 以下のURLから引用
+# http://stackoverflow.com/questions/19470099/view-pdf-image-in-an-ipython-notebook/19470377
+class PDF2html(object):
+  def __init__(self, pdf, size=(200,200)):
+    self.pdf = pdf
+    self.size = size
+
+  def _repr_html_(self):
+    return'<iframe src={0} width={1[0]} height={1[1]}></iframe>'.format(self.pdf, self.size)
+
+  def _repr_latex_(self):
+    return r'\includegraphics[width=1.0\textwidth]{{{0}}}'.format(self.pdf)
+
+
