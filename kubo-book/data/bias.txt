@@ -1,0 +1,7 @@
+bias <- function(lambda.true, sample.size){
+  sample.rpois <- rpois(sample.size, lambda.true)
+  fit <- glm(sample.rpois~1, family=poisson) 
+  lambda.estimated <- exp(coef(fit))
+  likelihood.mean <- mean(sapply(1:200, function(i){sum(log(dpois(rpois(N, lambda.true), lambda.estimated)))}))
+  logLik(fit) - likelihood.mean
+}
