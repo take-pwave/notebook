@@ -1,0 +1,14 @@
+model {
+    for (i in 1:N) {
+        x[i] ~ dbin(q[i], 10)
+        logit(q[i]) <- beta + gam[i]
+        gam[i] ~ dnorm(0, tau)
+        # add for check
+        x_hat[i] ~ dbin(q[i], 10)
+    }
+    beta ~ dnorm(0, 0.0001)
+    tau ~ dgamma(0.1, 0.1)
+    # add for check
+    x_mean <- mean(x_hat)
+    x_sd <- sd(x_hat)
+}

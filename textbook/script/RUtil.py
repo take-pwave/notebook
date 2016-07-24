@@ -10,7 +10,7 @@ from wand.image import Image as WImage
 
 def RDf2PandaDf(name):
     json_str =  r('toJSON(%s, pretty=FALSE)' % name) 
-    return pd.read_json(sageobj(json_str))
+    return pd.read_json(sageobj(json_str)['DATA'])
 
 def PandaDf2RDf(df, name):
     l = [dict(zip(df.columns, x)) for x in df.values.tolist()]
@@ -41,14 +41,12 @@ def toTable(df):
     Table2Html(df.values.tolist(), header=df.columns.tolist()) 
 
 def showPNG(pngFile, fac=0.75):
-    width = int(640*fac)
-    _img = Image(filename)
+    _img = Image(pngFile)
     return "<img src='data:image/png;base64," +  base64.b64encode(_img.data) + "'/>"
 
 def GgSave(fileName, fac=0.75):
-    filePath = fileName
-    plt.savefig(filePath, dpi=100*fac)
-    showPNG(fileName, fac)
+    plt.savefig(fileName, dpi=100*fac)
+    return showPNG(fileName, fac)
 
 def printFile(name):
     fileName = name

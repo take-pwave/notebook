@@ -1,0 +1,6 @@
+model {
+    for (i in 1:N) {
+        x[i] ~ dbin(q, 10)            
+    }
+    q ~ dunif(0,1)
+}
