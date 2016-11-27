@@ -1,0 +1,21 @@
+div.table {
+  position:relative;
+}
+div.data {
+  position: absolute;
+  width: 90px;
+  padding: 0 5px;
+}
+
+div.head {
+  position: absolute;
+}
+
+div.datarow {
+  position: relative;
+  width: 100%;
+  border-top: 2px black solid;
+  background: white;
+  height: 25px;
+  overflow: hidden;
+}
