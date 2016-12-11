@@ -19,3 +19,16 @@ div.datarow {
   height: 25px;
   overflow: hidden;
 }
+
+.svgMap {
+    float: left;    
+    background: #fcfcfc;
+}
+
+.svgChart {
+    display: inline-block;
+    background: #fcfcfc;
+}
+
+.spreadSheet {
+}
