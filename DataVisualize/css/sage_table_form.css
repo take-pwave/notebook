@@ -1,0 +1,7 @@
+table.table_form * td { padding-top: 5px; padding-bottom: 5px; padding-left: 15px; padding-right: 15px; }
+/* line 899, ../../../../sass/src/main.scss */
+table.table_form * th { background: #a6ba4e; height: 29px; padding-left: 15px; padding-right: 15px; padding-top: 5px; padding-bottom: 5px; color: white; text-align: left; }
+/* line 909, ../../../../sass/src/main.scss */
+table.table_form * tr.row-a { background: #f8f8f8; text-align: left; }
+/* line 912, ../../../../sass/src/main.scss */
+table.table_form * tr.row-b { background: #efefef; text-align: left; }
