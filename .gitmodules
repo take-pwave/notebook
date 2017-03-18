@@ -1,3 +1,6 @@
 [submodule "letsArduino"]
 	path = letsArduino
 	url = https://github.com/take-pwave/letsArduino.git
+[submodule "letsMbed"]
+	path = letsMbed
+	url = https://github.com/take-pwave/letsMbed.git
