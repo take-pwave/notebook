@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\usepackage{amsmath}
+%
+%
+
+%
+
+\usetikzlibrary{automata}%
+
+\begin{document}
+\pagestyle{empty}
+%
+%
+%
+
+\enlargethispage{100cm}
+% Start of code
+% \begin{tikzpicture}[anchor=mid,>=latex',line join=bevel,]
+\begin{tikzpicture}[>=latex',line join=bevel,]
+  \pgfsetlinewidth{1bp}
+%%
+\pgfsetcolor{black}
+  % Edge: NN -> end
+  \draw [] (233.27bp,19.0bp) -- node[auto] {$R^m$} (304.77bp,19.0bp);
+  % Edge: start -> NN
+  \draw [] (54.264bp,19.0bp) -- node[auto] {$R^n$} (125.94bp,19.0bp);
+  % Node: NN
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (233.0bp,38.0bp) -- (126.0bp,38.0bp) -- (126.0bp,0.0bp) -- (233.0bp,0.0bp) -- cycle;
+  \draw (179.5bp,22.8bp) node {$Newral Network$};
+  \draw (179.5bp,7.8bp) node {$Layer$};
+\end{scope}
+%
+\end{tikzpicture}
+% End of code
+
+%
+\end{document}
+%
+
+
+

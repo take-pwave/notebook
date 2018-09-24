@@ -1,0 +1,5 @@
+digraph yuukou { // directed graph
+    node [style="state"];
+    edge [lblstyle="auto",topath="bend left"];
+    a -> b [texlbl="$1^2$"];
+}

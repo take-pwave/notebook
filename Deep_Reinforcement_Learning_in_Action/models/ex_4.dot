@@ -1,0 +1,24 @@
+digraph ex_4 {
+    graph [rankdir=LR];
+    // グラフ名はcluster_で始める
+    subgraph cluster_0 {
+        label = "Recurrent Neural Network";
+        style= "rounded";
+        
+        Layer1 [shape="box", style="rounded,filled"];
+        Layer2 [shape="box", style="rounded,filled"];
+        
+        Layer1 -> Layer2  [label="y_1:R^r", lblstyle="auto", arrowhead=none];
+        Layer1 -> Layer1 [label="y_1:R^r", lblstyle="auto", arrowhead=none];
+        Layer2 -> Layer2 [label="y_2:R^s", lblstyle="auto", arrowhead=none];
+        
+    };
+
+    // node
+    start [label="", shape=none];
+    end [label="", shape=none];   
+
+    // edge
+    start -> Layer1 [label="x_1:R^q", lblstyle="auto", arrowhead=none];
+    Layer2 -> end [label="y_2:R^s", lblstyle="auto", arrowhead=none];
+}

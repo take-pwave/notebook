@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\usepackage{amsmath}
+%
+%
+
+%
+
+\usetikzlibrary{automata}%
+
+\begin{document}
+\pagestyle{empty}
+%
+%
+%
+
+\enlargethispage{100cm}
+% Start of code
+% \begin{tikzpicture}[anchor=mid,>=latex',line join=bevel,]
+\begin{tikzpicture}[>=latex',line join=bevel,]
+  \pgfsetlinewidth{1bp}
+\tikzstyle{every state}=     [draw=blue!50,very thick,fill=blue!20]%
+\pgfsetcolor{black}
+  % Edge: a -> b
+  \draw [->] (27.0bp,71.697bp) to[bend left] node[auto] {$1^2$} (27.0bp,36.104bp);
+  % Node: a
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw [state] (27.0bp,90.0bp) ellipse (27.0bp and 18.0bp);
+  \draw (27.0bp,90.0bp) node {$a$};
+\end{scope}
+  % Node: b
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw [state] (27.0bp,18.0bp) ellipse (27.0bp and 18.0bp);
+  \draw (27.0bp,18.0bp) node {$b$};
+\end{scope}
+%
+\end{tikzpicture}
+% End of code
+
+%
+\end{document}
+%
+
+
+

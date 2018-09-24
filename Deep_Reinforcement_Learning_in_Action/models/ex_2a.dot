@@ -1,0 +1,10 @@
+digraph ex_2 {
+    graph [rankdir=LR];
+    // node
+    start [label="", shape=none];
+    end [label="", shape=none];
+    NN [label="Newral Network\nLayer", shape="box"];
+    // edge
+    start -> NN [label="R^n", texlbl="$R^n$", lblstyle="auto", arrowhead=none];
+    NN -> end [label="R^m", texlbl="$R^m$", lblstyle="auto", arrowhead=none];
+}

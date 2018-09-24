@@ -1,0 +1,22 @@
+digraph ex_3 {
+    graph [rankdir=LR];
+    // グラフ名はcluster_で始める
+    subgraph cluster_0 {
+        label = "Newral Network Layer";
+        style= "rounded"
+        
+        WRnm [label="W:R^nXm", shape="box", style="rounded,filled"];
+        ReLU [ label="ReLU", shape="box", style="rounded,filled"];
+        
+        WRnm -> ReLU  [label="R^m", lblstyle="auto", arrowhead=none];
+        
+    };
+
+    // node
+    start [label="", shape=none];
+    end [label="", shape=none];   
+
+    // edge
+    start -> WRnm [label="R^n", texlbl="$R^n$", lblstyle="auto", arrowhead=none];
+    ReLU -> end [label="R^m", texlbl="$R^m$", lblstyle="auto", arrowhead=none];
+}

@@ -1,0 +1,10 @@
+digraph yuukou { // directed graph
+    d2ttikzedgelabels = true;
+    d2tstyleonly = true;
+    d2tdocpreamble = "\usetikzlibrary{automata}";
+    d2tfigpreamble = "\tikzstyle{every state}= \
+    [draw=blue!50,very thick,fill=blue!20]";
+    node [style="state"];
+    edge [lblstyle="auto",topath="bend left"];
+    a -> b [texlbl="$1^2$"];
+}

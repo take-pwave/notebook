@@ -1,0 +1,53 @@
+digraph ex_5 {
+    graph [rankdir=LR, charset="UTF-8"];
+    // グラフ名はcluster_で始める
+    // node
+    env_get_state [label="env.get_state()", shape="box", style="rounded,filled"];
+    one_hot_encode [label="One-Hot\nEncode", shape="box", style="rounded,filled"];
+        
+    subgraph cluster_1 {
+        label = "Layer1";
+        style= "rounded";
+        
+        theta1 [label="θ_1:10x100", shape="box", style="rounded,filled"];
+        ReLU1 [label="ReLU", shape="box", style="rounded,filled"];
+        
+        theta1 -> ReLU1 [arrowhead=none];
+    };
+
+    env_get_state -> one_hot_encode [label="整数", fontname="ipafont-gothic", lblstyle="auto", arrowhead=none];
+    one_hot_encode -> theta1 [label="実数[10]", fontname="ipafont-gothic", lblstyle="auto", arrowhead=none];
+
+    sample_action [label="Sample Action", shape="box", style="rounded,filled"];
+    softmax [label="Softmax", shape="box", style="rounded,filled"];
+
+    subgraph cluster_2 {
+        label = "Layer2";
+        style= "rounded";
+        
+        ReLU2 [label="ReLU", shape="box", style="rounded,filled"];
+        theta2 [label="θ_2:100x10", shape="box", style="rounded,filled"];
+        
+        ReLU2 -> theta2  [arrowhead=none];        
+    };
+    
+    ReLU1 -> theta2  [arrowhead=none, topath="bend left"]; 
+    
+    sample_action -> softmax [label="確率[10]", fontname="ipafont-gothic", lblstyle="auto", arrowhead=none];
+    softmax -> ReLU2  [label="実数[10]", fontname="ipafont-gothic", lblstyle="auto", arrowhead=none];
+    
+    // node
+    env_choose_arm [label="env.choose_arm()", shape="box", style="rounded,filled"];
+    loss_function [label="Loss Function", shape="box", style="rounded,filled"];
+    Optimizer [shape="box", style="rounded,filled"];
+    
+    env_choose_arm -> loss_function [label="報酬:整数", fontname="ipafont-gothic", lblstyle="auto", arrowhead=none];
+    loss_function -> Optimizer [arrowhead=none];
+    
+    sample_action -> env_choose_arm [label="整数", fontname="ipafont-gothic", lblstyle="auto", arrowhead=none];
+
+    newrank=true;
+    {rank=same; ReLU1, theta2}
+    {rank=same; env_get_state, sample_action, env_choose_arm}
+    {rank=same; one_hot_encode, softmax, loss_function}
+}
