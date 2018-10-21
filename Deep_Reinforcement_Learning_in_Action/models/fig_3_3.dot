@@ -1,0 +1,19 @@
+digraph fig_3_3 {
+    // 書式を設定
+    graph [rankdir=LR, charset="UTF-8"];
+    node [shape="box", style="rounded,filled"];
+    edge [fontname="ipafont-gothic", lblstyle="auto"];
+
+    Q_network [label="Qネットワーク"];
+    Q_values [label="Q値"];
+    Action_a [label="アクションa"];
+    Game_state_S [label="ゲーム状態S_t"];
+    Reward_r [label="報酬r_t+1"];
+
+    Q_network -> Q_values [label="予測"];
+    Q_values-> Action_a [label="評価されaを得る"];
+    Action_a ->Reward_r [label="生成"];
+    Reward_r -> Q_network [label="更新に利用"];
+    Action_a -> Game_state_S [label="新しい状態を生成"];
+    Game_state_S -> Q_network [label="返す"];
+ }
