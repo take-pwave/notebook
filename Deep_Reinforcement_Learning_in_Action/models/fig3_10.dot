@@ -1,0 +1,24 @@
+digraph fig3_10 {
+    // 書式を設定
+    graph [rankdir=LR, charset="UTF-8"];
+    node [shape="box", style="rounded,filled"];
+    edge [fontname="ipafont-gothic", lblstyle="auto"];
+
+    Initial_Game_State_St [label="初期ゲーム状態S_t"];
+    Q_network [label="Qネットワーク"];
+    Q_values [label="Q値"];
+    Action_a [label="アクションa"];
+    Game_state_St1 [label="ゲーム状態S_t+1"];
+    Q_hat_network [label="Qターゲットネットワーク"];
+    Q_hat_values [label="Q＾値"];
+
+    Initial_Game_State_St -> Q_network  [label="入力"];
+    Q_network -> Q_values [label="予測"];
+    Q_values-> Action_a [label="使用されaを得る"];
+    Action_a -> Game_state_St1 [label="新しい状態を生成"];
+    Game_state_St1 -> Q_network [label="入力"];
+    Game_state_St1 -> Q_hat_network;
+    Q_hat_network -> Q_hat_values [label="予測"];
+    Q_hat_values　-> Q_network [label="学習に使用"];
+    Q_hat_network　-> Q_network [label="パラメータを定期的にコピー"];    
+ }
