@@ -1,0 +1,24 @@
+digraph fig_5_5 {
+    // 書式を設定
+    graph [rankdir=LR, charset="UTF-8"];
+    node [shape="box", style="rounded,filled"];
+    edge [fontname="ipafont-gothic", lblstyle="auto"];
+
+    State_St [label="状態St"];
+    Actor [label="アクター"];
+    Action_a [label="アクションa"];
+    State_St_1 [label="状態St+1"];
+    Reward_Rt_1 [label="報酬Rt+1"];
+    Critic [label="批評家"];
+    Advantage_St_1 [label="St+1の利得"];
+
+    State_St -> Actor [label="入力"];
+    Actor-> Action_a [label="ポリシーを取る"];
+    Action_a ->Reward_Rt_1 [label="生成"];
+    Action_a -> State_St_1 [label="結果"];
+    Reward_Rt_1 -> Critic [label="学習に利用"];
+    State_St_1 -> Critic [label="入力"];
+    State_St -> Critic [label="入力"];
+    Critic -> Advantage_St_1 [label="予測"];
+    Advantage_St_1 -> Action_a [label="強化学習に利用"];
+ }
