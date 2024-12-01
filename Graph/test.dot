@@ -1,0 +1,24 @@
+digraph {
+    // 書式を設定
+    graph [charset="UTF-8"]
+    node [shape="box"]
+    
+    // ノードの設定
+    // 入出力用の見えないノード
+    start [label="", shape=none]
+    end [label="", shape=none]
+    // 信号の結合されるジャンクション
+    J_r [label="", shape=circle, height = 0.2]
+    J_d [shape=point]
+
+    // エッジの設定
+    start -> J_r 
+    J_r -> P_1 [label="X"] ;
+    P_1->  J_d;
+    J_d -> end [label="Y"];
+    J_d -> P_2
+    P_2 -> J_r [headlabel="+"]
+  
+    { rank=same; start, end, J_r, P_1, J_d }
+
+}
